@@ -17,32 +17,16 @@
         src="//apps.8thwall.com/xrweb?appKey=vlLDoiv6su89laVSuJGEgA4XY7zCHTd9vkGGVuxGA84dhKpnK41fjiCsI5hYDg3sv43rVy"></script>
 
     <script>
-        // register your component here with a name
-        AFRAME.registerComponent('hello-world', {
+        AFRAME.registerComponent('si', {
             schema: {
-                amount: {
-                    type: 'number',
-                    default: 10
-                },
-                color: {
-                    type: 'color',
-                    default: 'red'
-                },
-                duration: {
-                    type: 'number',
-                    default: 10000
-                },
-                randScaleMax: {
-                    type: 'number',
-                    default: 3
-                },
+                type: 'string'
             },
-            //custom function
             getRandomInt: function (min, max) {
                 min = Math.ceil(min);
                 max = Math.floor(max);
                 return Math.floor(Math.random() * (max - min)) + min; //The maximum is exclusive and the minimum is inclusive
             },
+
             getRandomColor: function () {
                 var letters = '0123456789ABCDEF'.split('');
                 var color = '#';
@@ -51,15 +35,43 @@
                 }
                 return color;
             },
+
             init: function () {
-                var box = document.createElement('a-sphere');
-                box.setAttribute('shader-frog', "src:url(https://raw.githubusercontent.com/mhellar/aframestuff/gh-pages/basic4/shaders/sun.json)")
-                box.setAttribute('position', 0 + ' ' + 6 + ' ' + 10);
-                box.setAttribute('scale', '180 180 180');
-                this.el.appendChild(box);
+                for (let i = 1; i < 32; i++) {
+                    let self = this;
+                    let x = this.getRandomInt(0, 360);
+                    let y = this.getRandomInt(0, 360);
+                    let z = this.getRandomInt(0, 360);
+
+                    let x1 = this.getRandomInt(1, 4);
+                    let y1 = this.getRandomInt(1, 4);
+                    let z1 = this.getRandomInt(1, 4);
+
+                    var knot = document.createElement('a-torus-knot');
+                    knot.setAttribute('color', this.getRandomColor());
+                    knot.setAttribute('position', x1 + ' ' + y1 + ' ' + z1);
+                    knot.setAttribute('scale', '.02 .02 .02');
+                    knot.setAttribute('rotation', x + ' ' + y + ' ' + z);
+                    knot.setAttribute('radius', this.getRandomInt(1, 100));
+
+                    var anim = document.createElement('a-animation');
+                    anim.setAttribute('attribute', 'rotation');
+                    anim.setAttribute('dur', '60000');
+                    anim.setAttribute('to', '0 360 0');
+                    anim.setAttribute('repeat', 'indefinite');
+                    knot.appendChild(anim)
+
+                    var anim = document.createElement('a-animation');
+                    anim.setAttribute('attribute', 'position');
+                    anim.setAttribute('dur', '60000');
+                    anim.setAttribute('to', '0 2 -7');
+                    anim.setAttribute('repeat', 'indefinite');
+                    knot.appendChild(anim)
+
+                    self.el.appendChild(knot);
+                }
             }
         });
-
 
         AFRAME.registerComponent('circle', {
             schema: {
@@ -76,7 +88,7 @@
             },
 
             init: function () {
-                let items = 32;
+                let items = 32
                 for (var i = 0; i < items; i++) {
 
                     let x = 2 * Math.sin(2 * Math.PI * i / items);
@@ -97,7 +109,7 @@
                     var anim = document.createElement('a-animation');
                     anim.setAttribute('attribute', 'scale');
                     anim.setAttribute('dur', '60000');
-                    anim.setAttribute('to', z * 2 + ' ' + x * 2 + ' ' + y * 2);
+                    anim.setAttribute('to', '1 1 1');
                     anim.setAttribute('repeat', 'indefinite');
                     knot.appendChild(anim)
 
