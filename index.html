@@ -17,44 +17,103 @@
         src="//apps.8thwall.com/xrweb?appKey=vlLDoiv6su89laVSuJGEgA4XY7zCHTd9vkGGVuxGA84dhKpnK41fjiCsI5hYDg3sv43rVy"></script>
 
     <script>
-        // This component gives the invisible hider walls the property they need
-        AFRAME.registerComponent('hider-material', {
-            init: function () {
-                const mesh = this.el.getObject3D('mesh')
-                mesh.material.colorWrite = false
-            },
-        })
-        // This component hides and shows certain elements as the camera moves
-        AFRAME.registerComponent('portal', {
+        // register your component here with a name
+        AFRAME.registerComponent('hello-world', {
             schema: {
-                width: { default: 4 },
-                height: { default: 6 },
-                depth: { default: 1 },
+                amount: {
+                    type: 'number',
+                    default: 10
+                },
+                color: {
+                    type: 'color',
+                    default: 'red'
+                },
+                duration: {
+                    type: 'number',
+                    default: 10000
+                },
+                randScaleMax: {
+                    type: 'number',
+                    default: 3
+                },
+            },
+            //custom function
+            getRandomInt: function (min, max) {
+                min = Math.ceil(min);
+                max = Math.floor(max);
+                return Math.floor(Math.random() * (max - min)) + min; //The maximum is exclusive and the minimum is inclusive
+            },
+            getRandomColor: function () {
+                var letters = '0123456789ABCDEF'.split('');
+                var color = '#';
+                for (var i = 0; i < 6; i++) {
+                    color += letters[Math.floor(Math.random() * 16)];
+                }
+                return color;
             },
             init: function () {
-                this.camera = document.getElementById('camera')
-                this.contents = document.getElementById('portal-contents')
-                this.walls = document.getElementById('hider-walls')
-                this.portalWall = document.getElementById('portal-wall')
-                this.portalWorld = document.getElementById('portal-world')
-                this.isInPortalSpace = false
-                this.wasOutside = true
-            },
-            tick: function () {
-                const position = this.camera.object3D.position
-                const isOutside = position.z > this.data.depth / 2
-                const withinPortalBounds =
-                    position.y < this.data.height && Math.abs(position.x) < this.data.width / 2
-                if (this.wasOutside != isOutside && withinPortalBounds) {
-                    this.isInPortalSpace = !isOutside
-                }
-                this.contents.object3D.visible = this.isInPortalSpace || isOutside
-                this.walls.object3D.visible = !this.isInPortalSpace && isOutside
-                this.portalWall.object3D.visible = this.isInPortalSpace && !isOutside
-                this.portalWorld.object3D.visible = this.isInPortalSpace
-                this.wasOutside = isOutside
+                var box = document.createElement('a-sphere');
+                box.setAttribute('shader-frog', "src:url(https://raw.githubusercontent.com/mhellar/aframestuff/gh-pages/basic4/shaders/sun.json)")
+                box.setAttribute('position', 0 + ' ' + 6 + ' ' + 10);
+                box.setAttribute('scale', '180 180 180');
+                this.el.appendChild(box);
             }
-        })
+        });
+
+
+        AFRAME.registerComponent('circle', {
+            schema: {
+                type: 'string'
+            },
+
+            getRandomColor: function () {
+                var letters = '0123456789ABCDEF'.split('');
+                var color = '#';
+                for (var i = 0; i < 6; i++) {
+                    color += letters[Math.floor(Math.random() * 16)];
+                }
+                return color;
+            },
+
+            init: function () {
+                let items = 32;
+                for (var i = 0; i < items; i++) {
+
+                    let x = 2 * Math.sin(2 * Math.PI * i / items);
+                    let y = 2 * Math.cos(2 * Math.PI * i / items);
+                    let z = 2 * Math.sin(2 * Math.PI * i / items);
+
+                    let self = this;
+
+                    var knot = document.createElement('a-torus-knot');
+                    knot.setAttribute('color', this.getRandomColor());
+                    knot.setAttribute('position', x + ' ' + y + ' ' + z);
+                    knot.setAttribute('scale', '.1 .1 .1');
+                    knot.setAttribute('rotation', x + ' ' + y + ' ' + z);
+                    knot.setAttribute('metalness', Math.random());
+                    knot.setAttribute('roughness', Math.random());
+                    knot.setAttribute('radius', '30');
+
+                    var anim = document.createElement('a-animation');
+                    anim.setAttribute('attribute', 'scale');
+                    anim.setAttribute('dur', '60000');
+                    anim.setAttribute('to', z * 2 + ' ' + x * 2 + ' ' + y * 2);
+                    anim.setAttribute('repeat', 'indefinite');
+                    knot.appendChild(anim)
+
+                    var anim = document.createElement('a-animation');
+                    anim.setAttribute('attribute', 'rotation');
+                    anim.setAttribute('dur', '60000');
+                    anim.setAttribute('to', z + ' ' + x + ' ' + y);
+                    anim.setAttribute('repeat', 'indefinite');
+                    knot.appendChild(anim)
+
+                    self.el.appendChild(knot);
+
+                }
+
+            }
+        });
     </script>
 
 </head>
@@ -64,45 +123,12 @@
 
         <!-- We can define assets here to be loaded when A-Frame initializes -->
         <a-assets>
-            <!-- Credit to Poly by Google for the model: https://poly.google.com/view/0fVRHo65E-j -->
-            <a-asset-item id="unicornModel"
-                src="https://github.com/8thwall/web/blob/master/examples/aframe/portal/unicorn.glb?raw=true">
-            </a-asset-item>
         </a-assets>
 
         <a-camera id="camera" position="0 5 8">
         </a-camera>
 
-        <!-- Doorway -->
-        <a-box scale="1 6 1" position="-2.5 3 0" color="cyan"></a-box>
-        <a-box scale="1 6 1" position="2.5 3 0" color="cyan"></a-box>
-        <a-box scale="6 1 1" position="0 6.5 0" color="cyan"></a-box>
-
-        <!-- Hider walls -->
-        <a-entity id="hider-walls">
-            <a-box scale="6 100 1" position="0 57 0" hider-material></a-box>
-            <a-box scale="94 100 1" position="-50 50 0" hider-material></a-box>
-            <a-box scale="94 100 1" position="50 50 0" hider-material></a-box>
-            <a-box scale="200 100 1" position="0 50 200" hider-material></a-box>
-            <a-box scale="200 1 201" position="0 100 100" hider-material></a-box>
-            <a-box scale="200 1 199" position="0 -0.5 100" hider-material></a-box>
-            <a-box scale="1 100 200" position="-100 50 100" hider-material></a-box>
-            <a-box scale="1 100 200" position="100 50 100" hider-material></a-box>
-        </a-entity>
-
-        <a-entity id="portal-wall">
-            <a-plane scale="4 6 1" rotation="180 0 0" position="0 3 0.5" hider-material></a-plane>
-        </a-entity>
-
-        <a-entity id="portal-contents">
-            <a-entity scale="0.3 0.3 0.3" position="0 0 -7" gltf-model="#unicornModel"></a-entity>
-            <a-sky color="#6EBAA7"></a-sky>
-            <a-box scale="200 1 100" position="0 -0.5 -49.5" color="blue"></a-box>
-        </a-entity>
-
-        <a-entity id="portal-world">
-            <a-box scale="200 1 100" position="0 -0.5 49.5" color="blue"></a-box>
-        </a-entity>
+        <a-entity circle></a-entity>
     </a-scene>
 </body>
 
