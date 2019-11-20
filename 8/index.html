@@ -230,7 +230,7 @@
         <a-camera id="camera" position="0 10 0">
         </a-camera>
 
-        <a-entity circle scale="0.1 0.1 0.1" dynamic-body></a-entity>
+        <a-entity circle scale="0.1 0.1 0.1" rigid-body="linearDamping:.2 angularDamping:.2"></a-entity>
 
 
         <!-- Attach components to an entity tag by adding the name -->
@@ -267,8 +267,6 @@
         <!-- <a-entity hello-world="amount: 40;randScaleMax: 6;" position=" 45 0 15"></a-entity> -->
         <a-entity>
             <a-entity probe="amount: 60;randScaleMax: 15;" rotation="0 0 0" position="0 35 -25"></a-entity>
-            <a-animation direction="alternate" attribute="rotation" to="0 -360 0" dur="30000" repeat="indefinite">
-            </a-animation>
 
         </a-entity>
         <!-- <a-entity probe="amount: 40;randScaleMax: 15;" rotation="0 0 180" position="0 35 -25"></a-entity> -->
