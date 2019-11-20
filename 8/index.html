@@ -158,6 +158,7 @@
                     let box = document.createElement('a-entity');
                     box.setAttribute('text-geometry', 'value: Reality');
                     box.setAttribute('color', this.getRandomColor());
+                    box.setAttribute('dynamic-body', "linearDamping:.2 angularDamping:.2");
                     box.setAttribute('position', this.getRandomInt(-60, 60) + ' ' + this.getRandomInt(-
                         -60, 60) + ' ' + this.getRandomInt(-60, 60));
                     box.setAttribute('scale', s + ' ' + s + ' ' + s);
@@ -230,7 +231,7 @@
         <a-camera id="camera" position="0 10 0">
         </a-camera>
 
-        <a-entity circle scale="0.1 0.1 0.1" rigid-body="linearDamping:.2 angularDamping:.2"></a-entity>
+        <a-entity circle scale="0.1 0.1 0.1"></a-entity>
 
 
         <!-- Attach components to an entity tag by adding the name -->
