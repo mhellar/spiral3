@@ -257,19 +257,19 @@
         <!-- <a-entity clone-along-curve="curve: #track1; spacing: 0.2; scale: 1 1 1; rotation: 0 0 0;" geometry="primitive:box; height:0.1; width:0.2; depth:0.1"></a-entity> -->
 
 
-        <!-- <a-obj-model src="#twist-obj" material="color:#ff7300; metalness: 1;" position="0 1.017472682325515 0"
-            scale="2.4952605306977556 2.4952605306977556 2.4952605306977556" obj-model=""></a-obj-model> -->
+        <a-obj-model src="#twist-obj" material="color:#ff7300; metalness: 1;" position="0 1.017472682325515 0"
+            scale=".1 .1 .1" obj-model=""></a-obj-model>
 
-        <a-entity hello-world="amount: 15;randScaleMax: 5;" position=" 45 0 15"></a-entity>
-        <a-entity probe="amount: 15;randScaleMax: 5;" position="27 0 -41"></a-entity>
-        <a-entity hello-world="amount: 15;randScaleMax: 5;" position="-8 0 -43"></a-entity>
-        <a-entity probe="amount: 15;randScaleMax: 5;" position="27 0 38"></a-entity>
-        <a-entity hello-world="amount: 15;randScaleMax: 5;" position="53 0 12"></a-entity>
-        <a-entity probe="amount: 15;randScaleMax: 5;" position="-27 0 0"></a-entity>
-        <a-entity hello-world="amount: 15;randScaleMax: 5;" position="24 0 59"></a-entity>
+        <a-entity hello-world="amount: 15;randScaleMax: 1;" position=" 45 0 15"></a-entity>
+        <a-entity probe="amount: 15;randScaleMax: 1;" position="27 0 -41"></a-entity>
+        <a-entity hello-world="amount: 15;randScaleMax: 1;" position="-8 0 -43"></a-entity>
+        <a-entity probe="amount: 15;randScaleMax: 1;" position="27 0 38"></a-entity>
+        <a-entity hello-world="amount: 15;randScaleMax: 1;" position="53 0 12"></a-entity>
+        <a-entity probe="amount: 15;randScaleMax: 1;" position="-27 0 0"></a-entity>
+        <a-entity hello-world="amount: 15;randScaleMax: 1;" position="24 0 59"></a-entity>
 
         <a-entity>
-            <a-entity id="sun" obj-model="obj: #ahead;" material="color: #ff0000; metalness: 1;" scale="5 5 5"
+            <a-entity id="sun" obj-model="obj: #ahead;" material="color: #ff0000; metalness: 1;" scale="1 1 1"
                 rotation="0 0 180" position="0 20 -25" sound="src:./plume2.mp3;autoplay:true;volume: 10; loop:true;">
             </a-entity>
             <a-animation direction="alternate" attribute="rotation" to="0 360 0" dur="20000" repeat="indefinite">
@@ -277,7 +277,7 @@
         </a-entity>
 
         <a-entity>
-            <a-entity id="sun" obj-model="obj: #ahead;" material="color: #ff0000; metalness: 1;" scale="5 5 5"
+            <a-entity id="sun" obj-model="obj: #ahead;" material="color: #ff0000; metalness: 1;" scale="1 1 1"
                 rotation="0 0 180" position="0 35 -25" sound="src:./plume2.mp3;autoplay:true;volume: 5; loop:true;">
             </a-entity>
             <a-animation direction="alternate" attribute="rotation" to="0 -360 0" dur="30000" repeat="indefinite">
