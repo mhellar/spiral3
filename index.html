@@ -131,7 +131,7 @@
 </head>
 
 <body>
-    <a-scene xrweb portal xrextras-almost-there xrextras-loading xrextras-runtime-error xrextras-tap-recenter>
+    <a-scene physics="gravity:-4.6" xrweb portal xrextras-almost-there xrextras-loading xrextras-runtime-error xrextras-tap-recenter>
 
         <!-- We can define assets here to be loaded when A-Frame initializes -->
         <a-assets>
@@ -139,7 +139,7 @@
 
         <a-camera id="camera" position="0 5 8">
         </a-camera>
-
+        <a-box static-body width=1000 height=0.01 depth=1000 visible="false"></a-box>
         <a-entity circle scale="0.1 0.1 0.1"></a-entity>
     </a-scene>
 </body>
