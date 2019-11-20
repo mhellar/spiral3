@@ -168,16 +168,16 @@
                     box.setAttribute('transparent', 'true');
                     box.setAttribute('opacity', this.getRandomInt(1, 9) * .1);
 
-                    box.setAttribute('animation', {
-                        property: 'position',
-                        dir: 'alternate',
-                        dur: this.getRandomInt(5000, 30000),
-                        delay: 2000,
-                        to: this.getRandomInt(-100, 100) + ' ' + this.getRandomInt(-100, 100) + ' ' +
-                            this.getRandomInt(-100, 100),
-                        easing: 'easeInSine',
-                        loop: true
-                    });
+                    // box.setAttribute('animation', {
+                    //     property: 'position',
+                    //     dir: 'alternate',
+                    //     dur: this.getRandomInt(5000, 30000),
+                    //     delay: 2000,
+                    //     to: this.getRandomInt(-100, 100) + ' ' + this.getRandomInt(-100, 100) + ' ' +
+                    //         this.getRandomInt(-100, 100),
+                    //     easing: 'easeInSine',
+                    //     loop: true
+                    // });
 
                     // box.setAttribute('animation__rot', {
                     //     property: 'rotation',
@@ -264,7 +264,7 @@
 
         <!-- <a-entity hello-world="amount: 40;randScaleMax: 6;" position=" 45 0 15"></a-entity> -->
         <a-entity>
-            <a-entity probe="amount: 40;randScaleMax: 15;" rotation="0 0 180" position="0 35 -25"></a-entity>
+            <a-entity probe="amount: 60;randScaleMax: 15;" rotation="0 0 0" position="0 35 -25"></a-entity>
             <a-animation direction="alternate" attribute="rotation" to="0 -360 0" dur="30000" repeat="indefinite">
             </a-animation>
 
