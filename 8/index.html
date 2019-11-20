@@ -68,6 +68,7 @@
                     box.setAttribute('color', this.getRandomColor());
                     box.setAttribute('position', this.getRandomInt(-60, 60) + ' ' + this.getRandomInt(-
                         -60, 60) + ' ' + this.getRandomInt(-60, 60));
+                    box.setAttribute('dynamic-body', "linearDamping:.2 angularDamping:.2");
                     box.setAttribute('scale', s + ' ' + s + ' ' + s);
                     // box.setAttribute('scale', '20 20 20');
                     box.setAttribute('rotation', '0 0 ' + this.getRandomInt(-180, 180));
