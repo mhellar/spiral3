@@ -76,7 +76,7 @@
         playsinline
         crossorigin="anonymous"
         loop="true"
-        src="comp.mp4">
+        src="https://cdn.8thwall.com/web/assets/video/alpaca.mp4">
       </video>
     </a-assets>
 
@@ -91,10 +91,9 @@
     <a-light type="ambient" intensity="1"></a-light>
 
     <!-- Note: "name:" must be set to the name of the image target uploaded to the 8th Wall Console -->
-
     <a-entity
       target-video="name: image1; video: #alpha-video;"
-
+      material="shader: chromakey; src: #alpha-video; color: 0.1 0.9 0.2"
       geometry="primitive: plane; height: 0.6; width: 1.38;">
     </a-entity>
 
@@ -102,3 +101,4 @@
 
 </body>
 </html>
+
