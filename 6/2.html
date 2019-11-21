@@ -56,9 +56,9 @@
                     let box = document.createElement('a-entity');
                     box.setAttribute('text-geometry', 'value: Reality');
                     box.setAttribute('color', this.getRandomColor());
-                    box.setAttribute('dynamic-body', "linearDamping:.2 angularDamping:.2");
-                    box.setAttribute('position', this.getRandomInt(-60, 60) + ' ' + this.getRandomInt(-
-                        -60, 60) + ' ' + this.getRandomInt(-60, 60));
+                    // box.setAttribute('dynamic-body', "linearDamping:.4 angularDamping:.4");
+                    box.setAttribute('position', this.getRandomInt(30, 120) + ' ' + this.getRandomInt(-
+                        0, 90) + ' ' + this.getRandomInt(0, 90));
                     box.setAttribute('scale', s + ' ' + s + ' ' + s);
                     // box.setAttribute('scale', '20 20 20');
                     box.setAttribute('rotation', '0 0 0');
@@ -68,28 +68,6 @@
                     box.setAttribute('flatShading', 0);
                     box.setAttribute('transparent', 'true');
                     box.setAttribute('opacity', this.getRandomInt(1, 9) * .1);
-
-                    // box.setAttribute('animation', {
-                    //     property: 'position',
-                    //     dir: 'alternate',
-                    //     dur: this.getRandomInt(5000, 30000),
-                    //     delay: 2000,
-                    //     to: this.getRandomInt(-100, 100) + ' ' + this.getRandomInt(-100, 100) + ' ' +
-                    //         this.getRandomInt(-100, 100),
-                    //     easing: 'easeInSine',
-                    //     loop: true
-                    // });
-
-                    // box.setAttribute('animation__rot', {
-                    //     property: 'rotation',
-                    //     dir: 'alternate',
-                    //     dur: this.getRandomInt(10000, 40000),
-                    //     to: this.getRandomInt(0, 360) + ' ' + this.getRandomInt(0, 360) + ' ' +
-                    //         this.getRandomInt(0, 360),
-                    //     easing: 'easeInSine',
-                    //     loop: true
-                    // });
-
                     this.el.appendChild(box);
 
                 }
@@ -106,10 +84,10 @@
       </a-assets>
 
       <!-- Primitives. -->
-      <a-box position="-1 10 -3" rotation="0 45 0" color="#4CC3D9" dynamic-body="linearDamping:.98. angularDamping:.5"></a-box>
-      <a-entity position="-1 10 -3" dynamic-body="linearDamping:.98. angularDamping:.5" text-geometry="value: What's up"></a-entity>
+      <!-- <a-box position="-1 10 -3" rotation="0 45 0" color="#4CC3D9" dynamic-body="linearDamping:.98. angularDamping:.5"></a-box> -->
+      <!-- <a-entity position="-1 10 -3" dynamic-body="linearDamping:.98. angularDamping:.5" text-geometry="value: What's up"></a-entity> -->
       <a-box static-body width=100000 height=0.01 depth=100000 visible="false"></a-box>
-      <a-entity probe="amount: 50;randScaleMax: 20;" scale="0.1 0.1 0.1" dynamic-body="linearDamping:.99. angularDamping:.5"></a-entity>
+      <a-entity probe="amount: 75;randScaleMax: 40;" scale="0.1 0.1 0.1"></a-entity>
       <!-- Background sky. -->
       <!-- <a-sky height="2048" radius="30" src="#skyTexture" theta-length="90" width="2048"></a-sky> -->
 
