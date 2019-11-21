@@ -61,7 +61,7 @@
                         -60, 60) + ' ' + this.getRandomInt(-60, 60));
                     box.setAttribute('scale', s + ' ' + s + ' ' + s);
                     // box.setAttribute('scale', '20 20 20');
-                    // box.setAttribute('rotation', '0 0 ' + this.getRandomInt(-180, 180));
+                    box.setAttribute('rotation', '0 0 0');
                     box.setAttribute('radius', i);
                     box.setAttribute('metalness', 1);
                     box.setAttribute('emissiveIntensity', 1);
@@ -109,7 +109,7 @@
       <a-box position="-1 10 -3" rotation="0 45 0" color="#4CC3D9" dynamic-body="linearDamping:.98. angularDamping:.5"></a-box>
       <a-entity position="-1 10 -3" dynamic-body="linearDamping:.98. angularDamping:.5" text-geometry="value: What's up"></a-entity>
       <a-box static-body width=100000 height=0.01 depth=100000 visible="false"></a-box>
-      <a-entity probe="amount: 30;randScaleMax: 20;" scale="0.1 0.1 0.1"></a-entity>
+      <a-entity probe="amount: 50;randScaleMax: 20;" scale="0.1 0.1 0.1" dynamic-body="linearDamping:.99. angularDamping:.5"></a-entity>
       <!-- Background sky. -->
       <!-- <a-sky height="2048" radius="30" src="#skyTexture" theta-length="90" width="2048"></a-sky> -->
 
