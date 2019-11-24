@@ -36,8 +36,8 @@ AFRAME.registerComponent('probe', {
 
     init: function () {
 
-        for (let i = 1; i < this.data.amount; i += 10) {
-            for (let x = 1; x < this.data.amount; x += 10) {
+        for (let i = 1; i < this.data.amount; i += 15) {
+            for (let x = 1; x < this.data.amount; x += 15) {
                 let s = this.getRandomInt(1, this.data.randScaleMax);
                 let box = document.createElement('a-entity');
                 box.setAttribute('text-geometry', 'value: Augemented Reality');
