@@ -36,12 +36,12 @@ AFRAME.registerComponent('probe', {
 
     init: function () {
 
-        for (let i = 1; i < this.data.amount; i += 15) {
-            for (let x = 1; x < this.data.amount; x += 15) {
+        for (let i = 1; i < this.data.amount; i += 8) {
+            for (let x = 1; x < this.data.amount; x += 8) {
                 let s = this.getRandomInt(1, this.data.randScaleMax);
                 let box = document.createElement('a-entity');
-                box.setAttribute('text-geometry', 'value: Augemented Reality');
-                box.setAttribute('color', 'white');
+                box.setAttribute('text-geometry', 'value: Augemented Reality; bevelEnabled: true; bevelSize: 0.05; bevelThickness: 0.05; curveSegments: 4;');
+                box.setAttribute('material', 'color:white;metalness:0.9; roughness: 0.05; sphericalEnvMap: #chrome;');
                 box.setAttribute('position', i + ' ' + x + ' ' + i);
                 box.setAttribute('scale', '2.5 2.5 2.5');
                 box.setAttribute('rotation', '0 0 0');
@@ -57,8 +57,8 @@ AFRAME.registerComponent('probe', {
                     dir: 'alternate',
                     dur: 30000,
                     delay: 2000,
-                    to: this.getRandomInt(-30, 30) + ' ' + this.getRandomInt(-30, 30) + ' ' +
-                        this.getRandomInt(-30, 30),
+                    to: this.getRandomInt(-20, 20) + ' ' + this.getRandomInt(-20, 20) + ' ' +
+                        this.getRandomInt(-20, 20),
                     easing: 'easeInSine',
                     loop: true
                 });
