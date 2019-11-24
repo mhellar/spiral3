@@ -41,9 +41,9 @@ AFRAME.registerComponent('probe', {
                 let s = this.getRandomInt(1, this.data.randScaleMax);
                 let box = document.createElement('a-entity');
                 box.setAttribute('text-geometry', 'value: Augemented Reality');
-                box.setAttribute('color', this.getRandomColor());
+                box.setAttribute('color', 'white');
                 box.setAttribute('position', i + ' ' + x + ' ' + i);
-                box.setAttribute('scale', '2 2 2');
+                box.setAttribute('scale', '2.5 2.5 2.5');
                 box.setAttribute('rotation', '0 0 0');
                 box.setAttribute('radius', i);
                 box.setAttribute('metalness', 1);
@@ -52,16 +52,16 @@ AFRAME.registerComponent('probe', {
                 // box.setAttribute('transparent', 'true');
                 // box.setAttribute('opacity', this.getRandomInt(1, 9) * .1);
 
-                // box.setAttribute('animation', {
-                //     property: 'position',
-                //     dir: 'alternate',
-                //     dur: this.getRandomInt(5000, 30000),
-                //     delay: 2000,
-                //     to: this.getRandomInt(-100, 100) + ' ' + this.getRandomInt(-100, 100) + ' ' +
-                //         this.getRandomInt(-100, 100),
-                //     easing: 'easeInSine',
-                //     loop: true
-                // });
+                box.setAttribute('animation', {
+                    property: 'position',
+                    dir: 'alternate',
+                    dur: 30000,
+                    delay: 2000,
+                    to: this.getRandomInt(-20, 20) + ' ' + this.getRandomInt(-20, 20) + ' ' +
+                        this.getRandomInt(-20, 20),
+                    easing: 'easeInSine',
+                    loop: true
+                });
 
                 // box.setAttribute('animation__rot', {
                 //     property: 'rotation',

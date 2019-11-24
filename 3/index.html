@@ -5,17 +5,24 @@
   <meta charset="utf-8">
   <title>aframe-boilerplate</title>
   <meta name="description" content="aframe-boilerplate">
-  <script src="js/aframe-master.min.js"></script>
+  <script src="//cdn.8thwall.com/web/aframe/8frame-0.8.2.min.js"></script>
   <script
     src="https://unpkg.com/aframe-text-geometry-component@0.5.1/dist/aframe-text-geometry-component.min.js"></script>
+
+
+    <script src="//cdn.8thwall.com/web/xrextras/xrextras.js"></script>
+
   <script
     src="https://rawgit.com/blairmacintyre/aframe-look-at-billboard-component/master/dist/aframe-look-at-billboard-component.min.js"></script>
 
+    <script async
+    src="//apps.8thwall.com/xrweb?appKey=5cvUWFgercJBPWZgNFyV0ndiUi2UEEpYZ1Nr6tSMjOTEN77LI8jUeOpbjQJaE93BOv6ghV"></script>
+  
   <script src="js/component.js"></script>
 </head>
 
 <body>
-  <a-scene>
+  <a-scene xrweb portal xrextras-almost-there xrextras-loading xrextras-runtime-error xrextras-tap-recenter>
     <a-assets>
       <img id="groundTexture" src="https://cdn.aframe.io/a-painter/images/floor.jpg" crossorigin="anonymous">
       <img id="skyTexture" src="https://cdn.aframe.io/a-painter/images/sky.jpg" crossorigin="anonymous">
@@ -28,18 +35,20 @@
     <a-plane position="0 .1 -4" rotation="-90 0 0" width="4" height="4" color="#7BC8A4"></a-plane> -->
 
     <!-- Background sky. -->
-    <a-sky height="4096" radius="90" color="grey" theta-length="90" width="2048"></a-sky>
+    <!-- <a-sky height="4096" radius="90" color="grey" theta-length="90" width="2048"></a-sky> -->
 
     <!-- Ground. -->
-    <a-circle src="#groundTexture" rotation="-90 0 0" radius="32"></a-circle>
-    <a-entity billboard>
-      <a-entity probe="amount: 20;randScaleMax: 5;" position="-10 2 20"></a-entity>
-      <a-entity probe="amount: 20;randScaleMax: 5;" position="-10 2 10"></a-entity>
-      <a-entity probe="amount: 20;randScaleMax: 5;" position="-10 2 -0"></a-entity>
-      <a-entity probe="amount: 20;randScaleMax: 5;" position="-10 2 -10"></a-entity>
-      <a-entity probe="amount: 20;randScaleMax: 5;" position="-10 2 -20"></a-entity>
-    </a-entity>
+    <!-- <a-circle src="#groundTexture" rotation="-90 0 0" radius="32"></a-circle> -->
+    <!-- <a-entity billboard> -->
+      <a-entity probe="amount: 15;randScaleMax: 5;" position="-15 -2 -10"></a-entity>
+      <a-entity probe="amount: 15;randScaleMax: 5;" position="-15 -2 -30"></a-entity>
+      <a-entity probe="amount: 15;randScaleMax: 5;" position="-15 -2 -50"></a-entity>
+      <a-entity probe="amount: 15;randScaleMax: 5;" position="-15 -2 -70"></a-entity>
+      <a-entity probe="amount: 15;randScaleMax: 5;" position="-15 -2 -90"></a-entity>
+    <!-- </a-entity> -->
 
+    <a-camera id="camera" position="0 1 8">
+    </a-camera>
 
 
 
