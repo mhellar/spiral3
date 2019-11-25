@@ -36,8 +36,8 @@ AFRAME.registerComponent('probe', {
 
     init: function () {
 
-        for (let i = 1; i < this.data.amount; i += 6) {
-            for (let x = 1; x < this.data.amount; x += 6) {
+        for (let i = 1; i < this.data.amount; i += 4) {
+            for (let x = 1; x < this.data.amount; x += 4) {
                 let s = this.getRandomInt(1, this.data.randScaleMax);
                 let box = document.createElement('a-entity');
                 box.setAttribute('text-geometry', 'value: Augmented Reality; bevelEnabled: true; bevelSize: 0.05; bevelThickness: 0.05; curveSegments: 4;');
