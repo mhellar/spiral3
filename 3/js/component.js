@@ -43,12 +43,14 @@ AFRAME.registerComponent('probe', {
                 box.setAttribute('text-geometry', 'value: Augmented Reality; bevelEnabled: true; bevelSize: 0.05; bevelThickness: 0.05; curveSegments: 4;');
                 box.setAttribute('material', 'color:white; metalness:0.9; roughness: 0.05; sphericalEnvMap: #chrome;');
                 box.setAttribute('position', i + ' ' + x + ' ' + i);
-                box.setAttribute('scale', '2.5 2.5 2.5');
+                box.setAttribute('scale', '2 2 2');
                 box.setAttribute('rotation', '0  0');
                 box.setAttribute('radius', i);
                 box.setAttribute('metalness', 1);
                 box.setAttribute('emissiveIntensity', 1);
                 box.setAttribute('flatShading', 1);
+                
+                
                 // box.setAttribute('transparent', 'true');
                 // box.setAttribute('opacity', this.getRandomInt(1, 9) * .1);
 

@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <title>aframe-boilerplate</title>
+  <meta name="description" content="aframe-boilerplate">
+  <script src="//cdn.8thwall.com/web/aframe/8frame-0.9.0.min.js"></script>
+  <script
+    src="https://unpkg.com/aframe-text-geometry-component@0.5.1/dist/aframe-text-geometry-component.min.js"></script>
+
+    <!-- <script src="//cdn.rawgit.com/donmccurdy/aframe-physics-system/v4.0.1/dist/aframe-physics-system.min.js"></script> -->
+
+    <script src="//cdn.8thwall.com/web/xrextras/xrextras.js"></script>
+
+
+    <script async
+    src="//apps.8thwall.com/xrweb?appKey=5cvUWFgercJBPWZgNFyV0ndiUi2UEEpYZ1Nr6tSMjOTEN77LI8jUeOpbjQJaE93BOv6ghV"></script>
+  
+  <script src="js/component.js"></script>
+</head>
+
+<body>
+  <a-scene xrweb portal xrextras-almost-there xrextras-loading xrextras-runtime-error xrextras-tap-recenter>
+    <a-assets>
+      <img src="https://img.gs/bbdkhfbzkk/2048x1024,stretch/http://i.imgur.com/WMNH2OF.jpg" id="chrome" crossorigin="anonymous">
+      <a-asset-item id="archivo" src="helv.json"></a-asset-item>
+    </a-assets>
+
+    <!-- Primitives. -->
+    <!-- <a-box position="-1 0.6 -3" rotation="0 45 0" color="#4CC3D9"></a-box>
+    <a-sphere position="0 1.35 -5" radius="1.25" color="#EF2D5E"></a-sphere>
+    <a-cylinder position="1 0.85 -3" radius="0.5" height="1.5" color="#FFC65D"></a-cylinder>
+    <a-plane position="0 .1 -4" rotation="-90 0 0" width="4" height="4" color="#7BC8A4"></a-plane> -->
+
+    <!-- Background sky. -->
+    <!-- <a-sky height="4096" radius="90" color="grey" theta-length="90" width="2048"></a-sky> -->
+
+    <!-- Ground. -->
+    <!-- <a-circle src="#groundTexture" rotation="-90 0 0" radius="32"></a-circle> -->
+    <!-- <a-entity billboard> -->
+      <a-entity probe="amount: 25;randScaleMax: 5;" position="-15 0 -30"></a-entity>
+      <a-entity hello-world="amount: 20;randScaleMax: 5;" position="-20 -2 -30"></a-entity>
+      <a-entity probe="amount: 25;randScaleMax: 5;" position="-15 -10 -60"></a-entity>
+      <a-entity hello-world="amount: 20;randScaleMax: 5;" position="-20 -2 -70"></a-entity>
+      <a-entity probe="amount: 25;randScaleMax: 5;" position="-15 -20 -90"></a-entity>
+    <!-- </a-entity> -->
+
+    <a-entity light="color: #ccccff; intensity: 10; type: ambient;" visible=""></a-entity>
+    <a-entity light="color: #ffaaff; intensity: 2.5" position="-15 -10 0"></a-entity>
+    <a-entity light="color: white; intensity: .5" position="-15 -10 -5"></a-entity>
+    <a-entity light="color: white; type: ambient;"></a-entity>
+
+    <a-camera id="camera" position="0 1 0">
+    </a-camera>
+
+
+
+
+
+  </a-scene>
+</body>
+
+</html>
